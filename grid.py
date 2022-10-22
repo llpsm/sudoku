@@ -41,18 +41,18 @@ class Grid9x:
 	def print(self):
 		g = self.grid
 		grid_str = f'''
-		{g[ 0].value}\t{g[ 1].value}\t{g[ 2].value} | {g[ 3].value}\t{g[ 4].value}\t{g[ 5].value} | {g[ 6].value}\t{g[ 7].value}\t{g[ 8].value}
-		{g[ 9].value}\t{g[10].value}\t{g[11].value} | {g[12].value}\t{g[13].value}\t{g[14].value} | {g[15].value}\t{g[16].value}\t{g[17].value}
-		{g[18].value}\t{g[19].value}\t{g[20].value} | {g[21].value}\t{g[22].value}\t{g[23].value} | {g[24].value}\t{g[25].value}\t{g[26].value}
-		-\t-\t-\t-\t-\t-\t-\t-\t-
-		{g[27].value}\t{g[28].value}\t{g[29].value} | {g[30].value}\t{g[31].value}\t{g[32].value} | {g[33].value}\t{g[34].value}\t{g[35].value}
-		{g[36].value}\t{g[37].value}\t{g[38].value} | {g[39].value}\t{g[40].value}\t{g[41].value} | {g[42].value}\t{g[43].value}\t{g[44].value}
-		{g[45].value}\t{g[46].value}\t{g[47].value} | {g[48].value}\t{g[49].value}\t{g[50].value} | {g[51].value}\t{g[52].value}\t{g[53].value}
-		-\t-\t-\t-\t-\t-\t-\t-\t-
-		{g[54].value}\t{g[55].value}\t{g[56].value} | {g[57].value}\t{g[58].value}\t{g[59].value} | {g[60].value}\t{g[61].value}\t{g[62].value}
-		{g[63].value}\t{g[64].value}\t{g[65].value} | {g[66].value}\t{g[67].value}\t{g[68].value} | {g[69].value}\t{g[70].value}\t{g[71].value}
-		{g[72].value}\t{g[73].value}\t{g[74].value} | {g[75].value}\t{g[76].value}\t{g[77].value} | {g[78].value}\t{g[79].value}\t{g[80].value}
-		'''
+{g[ 0].value} {g[ 1].value} {g[ 2].value} | {g[ 3].value} {g[ 4].value} {g[ 5].value} | {g[ 6].value} {g[ 7].value} {g[ 8].value}
+{g[ 9].value} {g[10].value} {g[11].value} | {g[12].value} {g[13].value} {g[14].value} | {g[15].value} {g[16].value} {g[17].value}
+{g[18].value} {g[19].value} {g[20].value} | {g[21].value} {g[22].value} {g[23].value} | {g[24].value} {g[25].value} {g[26].value}
+- - - | - - - | - - -
+{g[27].value} {g[28].value} {g[29].value} | {g[30].value} {g[31].value} {g[32].value} | {g[33].value} {g[34].value} {g[35].value}
+{g[36].value} {g[37].value} {g[38].value} | {g[39].value} {g[40].value} {g[41].value} | {g[42].value} {g[43].value} {g[44].value}
+{g[45].value} {g[46].value} {g[47].value} | {g[48].value} {g[49].value} {g[50].value} | {g[51].value} {g[52].value} {g[53].value}
+- - - | - - - | - - -
+{g[54].value} {g[55].value} {g[56].value} | {g[57].value} {g[58].value} {g[59].value} | {g[60].value} {g[61].value} {g[62].value}
+{g[63].value} {g[64].value} {g[65].value} | {g[66].value} {g[67].value} {g[68].value} | {g[69].value} {g[70].value} {g[71].value}
+{g[72].value} {g[73].value} {g[74].value} | {g[75].value} {g[76].value} {g[77].value} | {g[78].value} {g[79].value} {g[80].value}
+'''
 		print(grid_str)
 
 	def copy(self):
