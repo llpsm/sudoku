@@ -10,7 +10,8 @@ class Solve9x:
 			self.single_candidate,
 		]
 		cand_remove_methods = [
-			self.candidate_lines
+			self.candidate_lines,
+			self.double_pairs,
 		]
 		for method in fill_methods:
 			while 1:
@@ -112,4 +113,30 @@ class Solve9x:
 							self.score += strat_score
 							removed += 1
 							self.fill_after_remove(cell)
+		return removed > 0
+
+	def double_pairs(self):
+		strat_score = 250
+		removed = 0
+		for x in range(9):
+			for val in self.grid.values:
+				boxs = [cell.b for cell in self.grid.rows_cands[x][val]]
+				if len(set(boxs)) == 1:
+					cells = [cell for cell in self.grid.boxs_cands[boxs[0]][val] 
+								if cell not in self.grid.rows_cands[x][val]]
+					for cell in cells:
+						cell.remove_candidate(val)
+						self.score += strat_score
+						removed += 1
+						self.fill_after_remove(cell)
+
+				boxs = [cell.b for cell in self.grid.cols_cands[x][val]]
+				if len(set(boxs)) == 1:
+					cells = [cell for cell in self.grid.boxs_cands[boxs[0]][val] 
+								if cell not in self.grid.cols_cands[x][val]]
+					for cell in cells:
+						cell.remove_candidate(val)
+						self.score += strat_score
+						removed += 1
+						self.fill_after_remove(cell)
 		return removed > 0
