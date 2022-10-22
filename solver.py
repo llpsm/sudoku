@@ -56,7 +56,7 @@ class Solve9x:
 		filled = 0
 		for cell in self.grid.grid.values():
 			if len(cell.candidates) == 1:
-				cell.set_value(cell.candidates.pop())
+				cell.set_value(list(cell.candidates)[0])
 				self.score += strat_score
 				filled += 1
 		return filled > 0

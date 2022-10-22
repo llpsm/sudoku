@@ -19,12 +19,10 @@ class Cell:
 			self.remove_candidate(candidate)
 
 	def remove_candidate(self, candidate):
-		self.candidates.discard(candidate)
-		if self in self.grid.rows_cands[self.r][candidate]:
+		if candidate in self.candidates:
+			self.candidates.remove(candidate)
 			self.grid.rows_cands[self.r][candidate].remove(self)
-		if self in self.grid.cols_cands[self.c][candidate]:
 			self.grid.cols_cands[self.c][candidate].remove(self)
-		if self in self.grid.boxs_cands[self.b][candidate]:
 			self.grid.boxs_cands[self.b][candidate].remove(self)
 
 	def __eq__(self, other):
