@@ -20,11 +20,10 @@ class Solve9x:
 
 		for method in cand_remove_methods:
 			while 1:
-				while 1:
-					removed = method()
-					if not removed: break
-				filled = self.single_position() or self.single_candidate()
-				if not filled: break
+				removed = method()
+				if not removed: break
+			self.single_position()
+			self.single_candidate()
 
 
 	def single_position(self):
@@ -61,6 +60,36 @@ class Solve9x:
 				filled += 1
 		return filled > 0
 
+	def fill_after_remove(self, cell):
+		strat_score = 100
+
+		while 1:
+			filled = 0
+			if len(cell.candidates) == 1:
+				cell.set_value(list(cell.candidates)[0])
+				self.score += strat_score
+				filled += 1
+
+			for val in self.grid.values:
+				rcells = self.grid.rows_cands[cell.r][val]
+				if len(rcells) == 1:
+					rcells[0].set_value(val)
+					self.score += strat_score
+					filled += 1
+
+				ccells = self.grid.cols_cands[cell.c][val]
+				if len(ccells) == 1:
+					ccells[0].set_value(val)
+					self.score += strat_score
+					filled += 1
+
+				bcells = self.grid.boxs_cands[cell.b][val]
+				if len(bcells) == 1:
+					bcells[0].set_value(val)
+					self.score += strat_score
+					filled += 1
+			if not filled: break
+
 	def candidate_lines(self):
 		strat_score = 200
 		removed = 0
@@ -73,6 +102,7 @@ class Solve9x:
 							cell.remove_candidate(val)
 							self.score += strat_score
 							removed += 1
+							self.fill_after_remove(cell)
 
 				cols = [cell.i%3 for cell in cells]
 				if len(set(cols)) == 1:
@@ -81,4 +111,5 @@ class Solve9x:
 							cell.remove_candidate(val)
 							self.score += strat_score
 							removed += 1
+							self.fill_after_remove(cell)
 		return removed > 0
