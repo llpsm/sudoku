@@ -2,6 +2,17 @@
 Sudoku solver and generator written in Python.
 
 ## Usage
+1. Clone Git Repository to local environment
+git clone https://github.com/llpsm/sudoku.git
+
+2. Modify the code
+
+3. Save modifications on local repository (Commit changes)
+git commit -m "<commit message>"
+
+4. Save changes in remote repository
+git push
+
 ### Code
 ```
 from grid import Grid9x
